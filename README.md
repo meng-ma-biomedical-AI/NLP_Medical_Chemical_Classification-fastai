@@ -24,146 +24,15 @@ This project uses a free sample of data with over 3,000,000 articles that can be
 
 ### Downloading Data
 The file `data_cleaning/links.txt` was compiled using this sample. From there, `data_cleaning/get_data.py` was used to download all the files via FTP using wget.
-```python
-import subprocess
-
-with open("links.txt", 'r') as f:
-	for line in f:
-		print(line.strip())
-		subprocess.run(f'wget -P data/ {line.strip()}', shell=True)
-```
 
 ### Processing Data
 The data itself is comprised of many XML files. Within these XML files, there is quite a bit of data on each of the articles including publication dates, titles, authors, abstracts, relevant chemicals, journals, publishers, and more.
 
 Although this project was mainly concerned in the abstract and relevant chemicals, the mined dataset also includes information on the titles, authors, dates published, and publication journals. The data mining was done using the `data_cleaning/DataCleaning.ipynb` notebook.
 
-```python
-import xml.etree.cElementTree as ET
-from datetime import datetime
-import pandas as pd
-from glob import glob
-import numpy as np
-import os
-
-data_files = sorted(glob("data/*.xml"))
-for i, file in enumerate(data_files):
-    print(f"Processing {i+1} out of {len(data_files)}")
-    
-    # Check for existing pickle
-    if os.path.exists(f"pickle/frame_{i+1}.pkl"):
-        continue
-    
-    tree = ET.parse(file)
-
-    root = tree.getroot() 
-
-    articles = root.findall("PubmedArticle")
-
-    data = []
-    for article in articles:
-        # Article Title
-        try:
-            title = article.find("MedlineCitation/Article/ArticleTitle").text
-        except:
-            title = np.NaN
-
-        # Original Publish Date
-        try:
-            date_orig = datetime(int(article.find("MedlineCitation/DateCompleted/Year").text),
-                                 int(article.find("MedlineCitation/DateCompleted/Month").text),
-                                 int(article.find("MedlineCitation/DateCompleted/Day").text))
-        except:
-            date_orig = np.NaN
-
-        # Revised Publish Date
-        try:
-            date_revised = datetime(int(article.find("MedlineCitation/DateRevised/Year").text),
-                                 int(article.find("MedlineCitation/DateRevised/Month").text),
-                                 int(article.find("MedlineCitation/DateRevised/Day").text))
-        except:
-            date_revised = np.NaN
-
-        # Journal Title
-        try:
-            journal = article.find("MedlineCitation/Article/Journal/Title").text
-        except:
-            journal = np.NaN
-        
-        # Authors
-        try:
-            authors = [i.find("LastName").text + ", " + i.find("ForeName").text for i in article.findall("MedlineCitation/Article/AuthorList/Author")]
-        except:
-            authors = np.NaN
-
-        # Abstract
-        try:
-            abstract = [i.text for i in article.find("MedlineCitation/Article/Abstract")][0]
-        except:
-            abstract = np.NaN
-
-        # List of Chemicals
-        try:
-            chemicals = [i.text for i in article.findall("MedlineCitation/ChemicalList/Chemical/NameOfSubstance")]
-            
-            if len(chemicals) == 0:
-                chemicals = np.NaN
-        except:
-            chemicals = np.NaN
-
-        data.append({'title': title,
-                     'date_orig': date_orig,
-                     'date_revised':date_revised,
-                     'journal': journal,
-                     'authors' : authors,
-                     'abstract' : abstract,
-                     'chemicals' : chemicals})
-
-    df = pd.DataFrame(data)
-    df.to_pickle(f"pickle/frame_{i+1}.pkl")
-```
-
 This took a substantial amount of time to run to completion. In order to prevent having to do this again, the data was saved as a master dataframe pickle.
-```python
-from datetime import datetime
-import pandas as pd
-from glob import glob
-import numpy as np
-import os
-
-pickles = sorted(glob("pickle/*.pkl"))
-dataframes = []
-for i, file in enumerate(pickles):
-    print(f"Processing {i+1} out of {len(pickles)}")
-    df = pd.read_pickle(file)
-    dataframes.append(df)
-master_df = pd.concat(dataframes)
-master_df.to_pickle(f"pickle/master_frame.pkl")
-```
 
 Finally, there was quite a bit of missing data. Since transfer learning doesn't need nearly as much data to train a model as it would to train one from scratch, all the missing rows in the master dataframe was dropped and several sample datasets were made.
-
-```python
-df = pd.read_pickle("pickle/master_frame.pkl")
-df_trimmed = df[["title", 'abstract', 'chemicals']].dropna()
-df_trimmed.to_pickle("pickle/master_frame_trimmed.pkl")
-
-df_trimmed = pd.read_pickle("pickle/master_frame_trimmed.pkl")
-df_sample_10000 = df_trimmed.sample(n=10000, random_state=1)
-df_sample_10000.to_pickle("pickle/master_frame_sample_10000.pkl")
-
-df_trimmed = pd.read_pickle("pickle/master_frame_trimmed.pkl")
-df_sample_20000 = df_trimmed.sample(n=20000, random_state=1)
-df_sample_20000.to_pickle("pickle/master_frame_sample_20000.pkl")
-
-df_trimmed = pd.read_pickle("pickle/master_frame_trimmed.pkl")
-df_sample_50000 = df_trimmed.sample(n=50000, random_state=1)
-df_sample_50000.to_pickle("pickle/master_frame_sample_50000.pkl")
-
-df_trimmed = pd.read_pickle("pickle/master_frame_trimmed.pkl")
-df_sample_100000 = df_trimmed.sample(n=100000, random_state=1)
-df_sample_100000.to_pickle("pickle/master_frame_sample_100000.pkl")
-```
 
 If you would like to use this project but don't want to download and pre-process all of the data, the `master_frame.pkl` (27 GB) and `master_frame_trimmed.pkl`  (13 GB) files will be made available via download: LINK.
 
@@ -393,9 +262,8 @@ num_tests=50
 
 A more exhaustive list of sample predictions has been included in the file `pipeline_output.txt`.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMjgxNzM1OTQsMTgwODIyOTI2MiwtMT
-MwMzYwMjg5MywxMjAzNjAxNTEzLC0xMzUyMjIyNjE3LC0xNTUx
-NTE0MzExLDQwMjgwMDI5OSwtMTk2NTgxMDI3OSwtODQxNTY4NT
-A5LDEwMzgyMjM5MzQsMjQ4NDIyNzExLDEwNDY2ODUzNDRdfQ==
-
+eyJoaXN0b3J5IjpbMTc0OTI0NTQ3MSwxODA4MjI5MjYyLC0xMz
+AzNjAyODkzLDEyMDM2MDE1MTMsLTEzNTIyMjI2MTcsLTE1NTE1
+MTQzMTEsNDAyODAwMjk5LC0xOTY1ODEwMjc5LC04NDE1Njg1MD
+ksMTAzODIyMzkzNCwyNDg0MjI3MTEsMTA0NjY4NTM0NF19
 -->
