@@ -391,13 +391,11 @@ num_preds=8,
 num_tests=50
 ```
 
-A more exhaustive list of sample predictions has been included below:
-```
-
-```
+A more exhaustive list of sample predictions has been included in the file `pipeline_output.txt`.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgwMDU1MzY4NywxODA4MjI5MjYyLC0xMz
-AzNjAyODkzLDEyMDM2MDE1MTMsLTEzNTIyMjI2MTcsLTE1NTE1
-MTQzMTEsNDAyODAwMjk5LC0xOTY1ODEwMjc5LC04NDE1Njg1MD
-ksMTAzODIyMzkzNCwyNDg0MjI3MTEsMTA0NjY4NTM0NF19
+eyJoaXN0b3J5IjpbLTExMjgxNzM1OTQsMTgwODIyOTI2MiwtMT
+MwMzYwMjg5MywxMjAzNjAxNTEzLC0xMzUyMjIyNjE3LC0xNTUx
+NTE0MzExLDQwMjgwMDI5OSwtMTk2NTgxMDI3OSwtODQxNTY4NT
+A5LDEwMzgyMjM5MzQsMjQ4NDIyNzExLDEwNDY2ODUzNDRdfQ==
+
 -->
