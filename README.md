@@ -1,3 +1,4 @@
+
 # Relevant Medical Chemical Classification via NLP using FastAI
 
 ### Project Overview
@@ -360,6 +361,34 @@ Targets:
  ['Fluorescent Dyes', 'Diphenylhexatriene']  
 Preds:  
  b'["DNA", "Polymers", "Collagen", "Proteins", "Biomarkers, Tumor", "Antineoplastic Agents", "Biomarkers", "Contrast Media"]'
+```
+
+In this abstract, about the effects of Ciprofloxacinthe on soil microbial ecology and microbial ecosystem, the model correctly predicted `Anti-Bacterial Agents` and `Water Pollutants, Chemical`. Additionally, it predicted that both `Soil` and `Water` were relevant.
+```
+Text:
+ While antibiotics are frequently found in the environment, their biodegradability and ecotoxicological effects are not well understood. Ciprofloxacin inhibits active and growing microorganisms and therefore can represent an important risk for the environment, especially for soil microbial ecology and microbial ecosystem services. We investigated the biodegradation of (14)C-ciprofloxacin in water and soil following OECD tests (301B, 307) to compare its fate in both systems. Ciprofloxacin is recalcitrant to biodegradation and transformation in the aqueous system. However, some mineralisation was observed in soil. The lower bioavailability of ciprofloxacin seems to reduce the compound's toxicity against microorganisms and allows its biodegradation. Moreover, ciprofloxacin strongly inhibits the microbial activities in both systems. Higher inhibition was observed in water than in soil and although its antimicrobial potency is reduced by sorption and aging in soil, ciprofloxacin remains biologically active over time. Therefore sorption does not completely eliminate the effects of this compound.
+Targets:
+ ['Anti-Bacterial Agents', 'Soil Pollutants', 'Water Pollutants, Chemical', 'Ciprofloxacin']
+Preds:
+ b'["Anti-Bacterial Agents", "Water Pollutants, Chemical", "Biomarkers", "Antineoplastic Agents", "Soil", "Antioxidants", "Oxygen", "Water"]'
+```
+
+The model that resulted in these predictions was trained with the following hyper-parameters:
+```python
+data_size=50000,
+split=0.5,
+hyper_lm_bs=[64, 128, 256],
+hyper_lm_drop_mult=[0.3, 0.6],
+hyper_lm_epochs=1,
+train_lm_epochs=10,
+hyper_clas_bs=[64, 128, 256],
+hyper_clas_thresh=[0.01],
+hyper_clas_drop_mult=[0.3, 0.6],
+hyper_clas_epochs=1,
+train_clas_epochs=10,
+model_endpoint_name="FASTAI_NLP",
+num_preds=8,
+num_tests=50
 ```
 
 A more exhaustive list of sample predictions has been included below:
@@ -726,7 +755,7 @@ Preds:
  b'["Polymers", "Collagen", "Biocompatible Materials", "Polyethylene Glycols", "Antibodies, Monoclonal", "Drug Carriers", "Peptides", "Water"]'
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NTE1MTQzMTEsNDAyODAwMjk5LC0xOT
-Y1ODEwMjc5LC04NDE1Njg1MDksMTAzODIyMzkzNCwyNDg0MjI3
-MTEsMTA0NjY4NTM0NF19
+eyJoaXN0b3J5IjpbMTMyODgzMDkzNSwtMTU1MTUxNDMxMSw0MD
+I4MDAyOTksLTE5NjU4MTAyNzksLTg0MTU2ODUwOSwxMDM4MjIz
+OTM0LDI0ODQyMjcxMSwxMDQ2Njg1MzQ0XX0=
 -->
