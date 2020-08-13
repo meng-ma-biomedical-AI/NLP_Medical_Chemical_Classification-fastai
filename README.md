@@ -6,7 +6,7 @@ This project aims to classify relevant chemicals from medical texts via Natural 
 
 The first step was to train a language model via transfer learning from a Wikipedia model to obtain language encodings that include the medical terminology. Using these language encodings, the next step was to train a classification model for the relevant chemicals per abstract.
 
-The project is in the form on a Kubeflow Pipeline using MLRun and Nuclio on the Iguazio Data Platform. The pipeline includes:
+The project is in the form of a Kubeflow Pipeline using MLRun and Nuclio on the Iguazio Data Platform. The pipeline includes:
 
  1. Loading and sampling a subset of the data
  2. Creating DataBunches for the language and classification model
@@ -755,8 +755,8 @@ Preds:
  b'["Polymers", "Collagen", "Biocompatible Materials", "Polyethylene Glycols", "Antibodies, Monoclonal", "Drug Carriers", "Peptides", "Water"]'
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzYxNjQ0NTg3LDEyMDM2MDE1MTMsLTEzNT
-IyMjI2MTcsLTE1NTE1MTQzMTEsNDAyODAwMjk5LC0xOTY1ODEw
-Mjc5LC04NDE1Njg1MDksMTAzODIyMzkzNCwyNDg0MjI3MTEsMT
-A0NjY4NTM0NF19
+eyJoaXN0b3J5IjpbLTEzMDM2MDI4OTMsMTIwMzYwMTUxMywtMT
+M1MjIyMjYxNywtMTU1MTUxNDMxMSw0MDI4MDAyOTksLTE5NjU4
+MTAyNzksLTg0MTU2ODUwOSwxMDM4MjIzOTM0LDI0ODQyMjcxMS
+wxMDQ2Njg1MzQ0XX0=
 -->
