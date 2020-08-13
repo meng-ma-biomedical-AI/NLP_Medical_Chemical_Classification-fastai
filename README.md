@@ -34,7 +34,7 @@ This took a substantial amount of time to run to completion. In order to prevent
 
 Finally, there was quite a bit of missing data. Since transfer learning doesn't need nearly as much data to train a model as it would to train one from scratch, all the missing rows in the master dataframe was dropped and several sample datasets were made.
 
-If you would like to use this project but don't want to download and pre-process all of the data, the `master_frame.pkl` (27 GB) and `master_frame_trimmed.pkl`  (13 GB) files will be made available via download: LINK.
+If you would like to use this project but don't want to download and pre-process all of the data, the `master_frame.pkl` (27 GB) and `master_frame_trimmed.pkl`  (13 GB) files will be made available via download [here](https://drive.google.com/drive/folders/1Ii57ejpnrk3uXZTzs-2FvMImHkUt2Q-1?usp=sharing).
 
 ### Initial Model Development
 The initial model development and experimentation was done in the notebook `ModelDev.ipynb`. It is the basis for which the different pipeline components were based upon. The model pipeline was initially developed in this single notebook environment and was then later separated into different components to work with MLRun on the Iguazio Data Platform. The notebook itself is quite messy as there is model code, testing code, and troubleshooting code all in one place. It has been included for the sake of completion.
@@ -262,8 +262,9 @@ num_tests=50
 
 A more exhaustive list of sample predictions has been included in the file `pipeline_output.txt`.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc0OTI0NTQ3MSwxODA4MjI5MjYyLC0xMz
-AzNjAyODkzLDEyMDM2MDE1MTMsLTEzNTIyMjI2MTcsLTE1NTE1
-MTQzMTEsNDAyODAwMjk5LC0xOTY1ODEwMjc5LC04NDE1Njg1MD
-ksMTAzODIyMzkzNCwyNDg0MjI3MTEsMTA0NjY4NTM0NF19
+eyJoaXN0b3J5IjpbLTEzODM4MjEyMzYsMTc0OTI0NTQ3MSwxOD
+A4MjI5MjYyLC0xMzAzNjAyODkzLDEyMDM2MDE1MTMsLTEzNTIy
+MjI2MTcsLTE1NTE1MTQzMTEsNDAyODAwMjk5LC0xOTY1ODEwMj
+c5LC04NDE1Njg1MDksMTAzODIyMzkzNCwyNDg0MjI3MTEsMTA0
+NjY4NTM0NF19
 -->
