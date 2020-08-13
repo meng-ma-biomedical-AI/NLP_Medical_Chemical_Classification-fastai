@@ -23,7 +23,7 @@ The data for this project was mined from PubMed. Their website states: "PubMed®
 This project uses a free sample of data with over 3,000,000 articles that can be found here: [ftp://ftp.ncbi.nlm.nih.gov/pubmed/baseline-2018-sample/](ftp://ftp.ncbi.nlm.nih.gov/pubmed/baseline-2018-sample/).
 
 ### Downloading Data
-The file `links.txt` was compiled using this sample. From there, `get_data.py` was used to download all the files via FTP using wget.
+The file `data_cleaning/links.txt` was compiled using this sample. From there, `data_cleaning/get_data.py` was used to download all the files via FTP using wget.
 ```python
 import subprocess
 
@@ -755,7 +755,8 @@ Preds:
  b'["Polymers", "Collagen", "Biocompatible Materials", "Polyethylene Glycols", "Antibodies, Monoclonal", "Drug Carriers", "Peptides", "Water"]'
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNTIyMjI2MTcsLTE1NTE1MTQzMTEsND
-AyODAwMjk5LC0xOTY1ODEwMjc5LC04NDE1Njg1MDksMTAzODIy
-MzkzNCwyNDg0MjI3MTEsMTA0NjY4NTM0NF19
+eyJoaXN0b3J5IjpbMTIwMzYwMTUxMywtMTM1MjIyMjYxNywtMT
+U1MTUxNDMxMSw0MDI4MDAyOTksLTE5NjU4MTAyNzksLTg0MTU2
+ODUwOSwxMDM4MjIzOTM0LDI0ODQyMjcxMSwxMDQ2Njg1MzQ0XX
+0=
 -->
