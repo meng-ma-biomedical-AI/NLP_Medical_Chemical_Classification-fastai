@@ -1,0 +1,69 @@
+kind: job
+metadata:
+  name: train-lm
+  tag: ''
+  hash: dd365929a3bc13ec5c48db4f70c088ac9556b20c
+  project: default
+  labels:
+    author: nschenone
+  categories:
+  - train
+  - ml
+spec:
+  command: ''
+  args: []
+  image: mlrun/ml-models-gpu
+  env: []
+  resources:
+    limits:
+      nvidia.com/gpu: 1
+  default_handler: train_lm
+  entry_points:
+    get_min_grad:
+      name: get_min_grad
+      doc: ''
+      parameters:
+      - name: model
+        default: ''
+      outputs:
+      - default: ''
+      lineno: 13
+    train_lm_model:
+      name: train_lm_model
+      doc: ''
+      parameters:
+      - name: bs
+        default: ''
+      - name: drop_mult
+        default: ''
+      - name: epochs
+        default: ''
+      - name: num_samples
+        default: ''
+      - name: data_lm_path
+        default: ''
+      outputs:
+      - default: ''
+      lineno: 18
+    train_lm:
+      name: train_lm
+      doc: ''
+      parameters:
+      - name: context
+        default: ''
+      - name: train_lm_epochs
+        default: ''
+      - name: data_lm_path
+        default: ''
+      - name: num_samples
+        default: ''
+      - name: hyper_lm_best_params_path
+        default: ''
+      outputs:
+      - default: ''
+      lineno: 60
+  description: training for language model
+  build:
+    functionSourceCode: IyBHZW5lcmF0ZWQgYnkgbnVjbGlvLmV4cG9ydC5OdWNsaW9FeHBvcnRlcgoKZnJvbSBvcyBpbXBvcnQgcGF0aAppbXBvcnQgcGFuZGFzIGFzIHBkCmltcG9ydCBudW1weSBhcyBucAppbXBvcnQgcmFuZG9tCmltcG9ydCBmYXN0YWkKaW1wb3J0IGpzb24KZnJvbSBmYXN0YWkudGV4dCBpbXBvcnQgKgpmcm9tIGZhc3RhaS5jYWxsYmFja3MgaW1wb3J0ICoKdG9yY2guY3VkYS5zZXRfZGV2aWNlKDApCgpkZWYgZ2V0X21pbl9ncmFkKG1vZGVsKToKICAgIG1vZGVsLmxyX2ZpbmQobnVtX2l0PTIwMCkKICAgIG1vZGVsLnJlY29yZGVyLnBsb3Qoc3VnZ2VzdGlvbj1UcnVlKQogICAgcmV0dXJuIG1vZGVsLnJlY29yZGVyLm1pbl9ncmFkX2xyCgpkZWYgdHJhaW5fbG1fbW9kZWwoYnMsIGRyb3BfbXVsdCwgZXBvY2hzLCBudW1fc2FtcGxlcywgZGF0YV9sbV9wYXRoKToKICAgIHZlcnNpb24gPSBmInNhbXBsZV97bnVtX3NhbXBsZXN9IgogICAgZGF0YV9sbSA9IGxvYWRfZGF0YSgiIiwgc3RyKGRhdGFfbG1fcGF0aCksIGJzPWJzKQoKICAgIG1ldHJpY3MgPSBbYWNjdXJhY3ldCgogICAgZWFybHlfc3RvcCA9IHBhcnRpYWwoRWFybHlTdG9wcGluZ0NhbGxiYWNrLAogICAgICAgICAgICAgICAgICAgICAgICAgbW9uaXRvcj0nYWNjdXJhY3knLAogICAgICAgICAgICAgICAgICAgICAgICAgbW9kZT0ibWF4IiwKICAgICAgICAgICAgICAgICAgICAgICAgIG1pbl9kZWx0YT0wLjAxLAogICAgICAgICAgICAgICAgICAgICAgICAgcGF0aWVuY2U9NSkKCiAgICBjYWxsYmFja19mbnMgPSBbZWFybHlfc3RvcF0KCiAgICBsZWFybl9sbSA9IGxhbmd1YWdlX21vZGVsX2xlYXJuZXIoZGF0YV9sbSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBBV0RfTFNUTSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkcm9wX211bHQ9ZHJvcF9tdWx0LAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG1ldHJpY3M9bWV0cmljcywKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjYWxsYmFja19mbnM9Y2FsbGJhY2tfZm5zKS50b19mcDE2KCkKICAgIAogICAgbW9kZWxfbmFtZSA9IGYibGVhcm5fbG1fe3ZlcnNpb259X2JzX3tic31fZHJvcG11bHRfe2Ryb3BfbXVsdH0iCiAgICBtb2RlbF9lbmNfbmFtZSA9IGYibGVhcm5fbG1fZW5jX3t2ZXJzaW9ufV9ic197YnN9X2Ryb3BtdWx0X3tkcm9wX211bHR9IgogICAgc2F2ZV9iZXN0ID0gU2F2ZU1vZGVsQ2FsbGJhY2sobGVhcm5fbG0sCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBldmVyeT0naW1wcm92ZW1lbnQnLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgbW9uaXRvcj0iYWNjdXJhY3kiLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgbW9kZT0ibWF4IiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG5hbWU9bW9kZWxfbmFtZSkKICAgIGNhbGxiYWNrcyA9IFtzYXZlX2Jlc3RdCgogICAgbWluX2dyYWQgPSBnZXRfbWluX2dyYWQobGVhcm5fbG0pCiAgICBsZWFybl9sbS5maXRfb25lX2N5Y2xlKDEsIG1pbl9ncmFkLCBjYWxsYmFja3M9Y2FsbGJhY2tzKQogICAgbGVhcm5fbG0udW5mcmVlemUoKQoKICAgIG1pbl9ncmFkID0gZ2V0X21pbl9ncmFkKGxlYXJuX2xtKQogICAgbGVhcm5fbG0uZml0X29uZV9jeWNsZShlcG9jaHMsIHNsaWNlKG1pbl9ncmFkLG1pbl9ncmFkKjEwMCksIG1vbXM9KDAuOCwwLjcpLCBjYWxsYmFja3M9Y2FsbGJhY2tzKQogICAgCiAgICBiZXN0X2FjYyA9IG1heChbaVswXSBmb3IgaSBpbiBsZWFybl9sbS5yZWNvcmRlci5tZXRyaWNzXSkuaXRlbSgpCiAgICAKICAgIGxlYXJuX2xtLmxvYWQobW9kZWxfbmFtZSkKICAgIAogICAgcmV0dXJuIChiZXN0X2FjYywgbGVhcm5fbG0pCgpkZWYgdHJhaW5fbG0oY29udGV4dCwgdHJhaW5fbG1fZXBvY2hzLCBkYXRhX2xtX3BhdGgsIG51bV9zYW1wbGVzLCBoeXBlcl9sbV9iZXN0X3BhcmFtc19wYXRoKToKICAgIAogICAgd2l0aCBvcGVuKHN0cihoeXBlcl9sbV9iZXN0X3BhcmFtc19wYXRoKSArICJwYXJhbXMuanNvbiIsICJyKyIpIGFzIGY6CiAgICAgICAgcGFyYW1zID0ganNvbi5sb2FkKGYpCiAgICBwYXJhbXNbJ2Vwb2NocyddID0gaW50KHN0cih0cmFpbl9sbV9lcG9jaHMpKQogICAgcGFyYW1zWydudW1fc2FtcGxlcyddID0gaW50KHN0cihudW1fc2FtcGxlcykpCiAgICBwYXJhbXNbJ2RhdGFfbG1fcGF0aCddID0gc3RyKGRhdGFfbG1fcGF0aCkKICAgIAogICAgYmVzdF9hY2MsIGxlYXJuX2xtID0gdHJhaW5fbG1fbW9kZWwoKipwYXJhbXMpCiAgICAKICAgIG1vZGVsID0gIi9Vc2VyL25scC9ydW4vdHJhaW5fbG1fbW9kZWwiCiAgICBtb2RlbF9lbmMgPSAiL1VzZXIvbmxwL3J1bi90cmFpbl9sbV9tb2RlbF9lbmMiCiAgICBsZWFybl9sbS5zYXZlKG1vZGVsKQogICAgbGVhcm5fbG0uc2F2ZV9lbmNvZGVyKG1vZGVsX2VuYykKCiAgICBjb250ZXh0LmxvZ19yZXN1bHQoJ3RyYWluX2xtX21vZGVsJywgbW9kZWwpCiAgICBjb250ZXh0LmxvZ19yZXN1bHQoJ3RyYWluX2xtX21vZGVsX2VuYycsIG1vZGVsX2VuYykKICAgIAogICAgdHJhaW5fbG1fYWNjdXJhY3lfcGF0aCA9ICIvVXNlci9ubHAvcnVuL3RyYWluX2xtX2FjY3VyYWN5LnR4dCIKICAgIHdpdGggb3Blbih0cmFpbl9sbV9hY2N1cmFjeV9wYXRoLCAidysiKSBhcyBmOgogICAgICAgIGYud3JpdGUoc3RyKGJlc3RfYWNjKSkKICAgIGNvbnRleHQubG9nX3Jlc3VsdCgndHJhaW5fbG1fYWNjdXJhY3knLCB0cmFpbl9sbV9hY2N1cmFjeV9wYXRoKQoK
+    commands: []
+    code_origin: https://github.com/nschenone/NLP_Dev.git#10629776eea268f5080b9e2187a89f53f13a6575:train_lm.ipynb

@@ -1,0 +1,42 @@
+kind: job
+metadata:
+  name: model-server-tester
+  tag: ''
+  hash: ec77a562be465fc235c0566ef2cb7f1ba4b75044
+  project: default
+  labels:
+    author: nschenone
+  categories:
+  - serving
+  - ml
+spec:
+  command: ''
+  args: []
+  image: mlrun/mlrun
+  env: []
+  default_handler: model_server_tester
+  entry_points:
+    model_server_tester:
+      name: model_server_tester
+      doc: ''
+      parameters:
+      - name: context
+        default: ''
+      - name: model_endpoint
+        default: ''
+      - name: model_name
+        default: ''
+      - name: data_size
+        default: ''
+      - name: data_path
+        default: ''
+      - name: num_tests
+        default: ''
+      outputs:
+      - default: ''
+      lineno: 10
+  description: model server tester for fastai nlp
+  build:
+    functionSourceCode: IyBHZW5lcmF0ZWQgYnkgbnVjbGlvLmV4cG9ydC5OdWNsaW9FeHBvcnRlcgoKaW1wb3J0IG9zCmltcG9ydCBwYW5kYXMgYXMgcGQKaW1wb3J0IHJlcXVlc3RzCmltcG9ydCBqc29uCmltcG9ydCBudW1weSBhcyBucAppbXBvcnQgcGlja2xlCgpkZWYgbW9kZWxfc2VydmVyX3Rlc3Rlcihjb250ZXh0LCBtb2RlbF9lbmRwb2ludCwgbW9kZWxfbmFtZSwgZGF0YV9zaXplLCBkYXRhX3BhdGgsIG51bV90ZXN0cyk6CiAgICBtb2RlbF9lbmRwb2ludCA9IHN0cihtb2RlbF9lbmRwb2ludCkKICAgIG1vZGVsX25hbWUgPSBzdHIobW9kZWxfbmFtZSkKICAgIGRhdGFfc2l6ZSA9IGludChzdHIoZGF0YV9zaXplKSkKICAgIGRhdGFfcGF0aCA9IHN0cihkYXRhX3BhdGgpCiAgICBudW1fdGVzdHMgPSBpbnQoc3RyKG51bV90ZXN0cykpCiAgICAKICAgIGRmID0gcGQucmVhZF9waWNrbGUoZGF0YV9wYXRoKQogICAgZGYuZHJvcCgndGl0bGUnLCBheGlzPTEsIGlucGxhY2U9VHJ1ZSkKICAgIAogICAgZGYgPSBkZi5zYW1wbGUoZGF0YV9zaXplLCByYW5kb21fc3RhdGU9MSkKICAgIAogICAgZGYgPSBkZi5zYW1wbGUobnVtX3Rlc3RzKQogICAgCiAgICBYID0gZGZbJ2Fic3RyYWN0J10udG9fbGlzdCgpCiAgICB5ID0gZGZbJ2NoZW1pY2FscyddLnRvX2xpc3QoKQogICAgCiAgICBmb3IgdGV4dCwgdGFyZ2V0IGluIHppcChYLCB5KToKICAgICAgICBldmVudF9ib2R5ID0ganNvbi5kdW1wcyh7Imluc3RhbmNlcyI6IFt0ZXh0XX0pCiAgICAgICAgaGVhZGVycyA9IHsnQ29udGVudC10eXBlJzogJ2FwcGxpY2F0aW9uL2pzb24nfQogICAgICAgIHJlc3BvbnNlID0gcmVxdWVzdHMucG9zdCh1cmw9bW9kZWxfZW5kcG9pbnQgKyBmJy97bW9kZWxfbmFtZX0vcHJlZGljdCcsIGRhdGE9ZXZlbnRfYm9keSwgaGVhZGVycz1oZWFkZXJzKQogICAgICAgIHByZWQgPSByZXNwb25zZS5jb250ZW50CiAgICAgICAgCiAgICAgICAgcHJpbnQoIlRleHQ6XG4iLCB0ZXh0KQogICAgICAgIHByaW50KCJUYXJnZXRzOlxuIiwgdGFyZ2V0KQogICAgICAgIHByaW50KCJQcmVkczpcbiIsIHN0cihwcmVkKSkKICAgICAgICBwcmludCgiXG4iKQoK
+    commands: []
+    code_origin: https://github.com/nschenone/NLP_Dev.git#10629776eea268f5080b9e2187a89f53f13a6575:model_server_tester.ipynb

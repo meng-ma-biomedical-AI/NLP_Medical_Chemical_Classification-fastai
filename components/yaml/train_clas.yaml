@@ -1,0 +1,75 @@
+kind: job
+metadata:
+  name: train-clas
+  tag: ''
+  hash: 0fa9dfeb465da27fc58f8daf5fe8c778add90bdb
+  project: default
+  labels:
+    author: nschenone
+  categories:
+  - train
+  - ml
+spec:
+  command: ''
+  args: []
+  image: mlrun/ml-models-gpu
+  env: []
+  resources:
+    limits:
+      nvidia.com/gpu: 1
+  default_handler: train_clas
+  entry_points:
+    get_min_grad:
+      name: get_min_grad
+      doc: ''
+      parameters:
+      - name: model
+        default: ''
+      outputs:
+      - default: ''
+      lineno: 13
+    train_clas_model:
+      name: train_clas_model
+      doc: ''
+      parameters:
+      - name: bs
+        default: ''
+      - name: thresh
+        default: ''
+      - name: drop_mult
+        default: ''
+      - name: epochs
+        default: ''
+      - name: num_samples
+        default: ''
+      - name: encodings
+        default: ''
+      - name: data_clas_path
+        default: ''
+      outputs:
+      - default: ''
+      lineno: 18
+    train_clas:
+      name: train_clas
+      doc: ''
+      parameters:
+      - name: context
+        default: ''
+      - name: train_clas_epochs
+        default: ''
+      - name: data_clas_path
+        default: ''
+      - name: num_samples
+        default: ''
+      - name: encodings
+        default: ''
+      - name: hyper_clas_best_params_path
+        default: ''
+      outputs:
+      - default: ''
+      lineno: 63
+  description: training for classification model
+  build:
+    functionSourceCode: IyBHZW5lcmF0ZWQgYnkgbnVjbGlvLmV4cG9ydC5OdWNsaW9FeHBvcnRlcgoKZnJvbSBvcyBpbXBvcnQgcGF0aAppbXBvcnQgcGFuZGFzIGFzIHBkCmltcG9ydCBudW1weSBhcyBucAppbXBvcnQgcmFuZG9tCmltcG9ydCBmYXN0YWkKaW1wb3J0IGpzb24KZnJvbSBmYXN0YWkudGV4dCBpbXBvcnQgKgpmcm9tIGZhc3RhaS5jYWxsYmFja3MgaW1wb3J0ICoKdG9yY2guY3VkYS5zZXRfZGV2aWNlKDApCgpkZWYgZ2V0X21pbl9ncmFkKG1vZGVsKToKICAgIG1vZGVsLmxyX2ZpbmQobnVtX2l0PTIwMCkKICAgIG1vZGVsLnJlY29yZGVyLnBsb3Qoc3VnZ2VzdGlvbj1UcnVlKQogICAgcmV0dXJuIG1vZGVsLnJlY29yZGVyLm1pbl9ncmFkX2xyCgpkZWYgdHJhaW5fY2xhc19tb2RlbChicywgdGhyZXNoLCBkcm9wX211bHQsIGVwb2NocywgbnVtX3NhbXBsZXMsIGVuY29kaW5ncywgZGF0YV9jbGFzX3BhdGgpOgogICAgdmVyc2lvbiA9IGYic2FtcGxlX3tudW1fc2FtcGxlc30ucGtsIgogICAgZGF0YV9jbGFzID0gbG9hZF9kYXRhKCIiLCBzdHIoZGF0YV9jbGFzX3BhdGgpLCBicz1icywgKip7Im51bV93b3JrZXJzIiA6IDB9KQoKICAgIGFjYyA9IHBhcnRpYWwoYWNjdXJhY3lfdGhyZXNoLCB0aHJlc2g9dGhyZXNoKQogICAgZl9zY29yZSA9IHBhcnRpYWwoZmJldGEsIHRocmVzaD10aHJlc2gpCiAgICBtZXRyaWNzID0gW2FjYywgZl9zY29yZV0KCiAgICBlYXJseV9zdG9wID0gcGFydGlhbChFYXJseVN0b3BwaW5nQ2FsbGJhY2ssCiAgICAgICAgICAgICAgICAgICAgICAgICBtb25pdG9yPSdmYmV0YScsCiAgICAgICAgICAgICAgICAgICAgICAgICBtb2RlPSJtYXgiLAogICAgICAgICAgICAgICAgICAgICAgICAgbWluX2RlbHRhPTAuMDAxLAogICAgICAgICAgICAgICAgICAgICAgICAgcGF0aWVuY2U9NSkKCiAgICBjYWxsYmFja19mbnMgPSBbZWFybHlfc3RvcF0KCiAgICBsZWFybl9jbGFzID0gdGV4dF9jbGFzc2lmaWVyX2xlYXJuZXIoZGF0YV9jbGFzLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEFXRF9MU1RNLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRyb3BfbXVsdD1kcm9wX211bHQsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgbWV0cmljcz1tZXRyaWNzLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNhbGxiYWNrX2Zucz1jYWxsYmFja19mbnMpLnRvX2ZwMTYoKQogICAgbGVhcm5fY2xhcy5sb2FkX2VuY29kZXIoZW5jb2RpbmdzKQogICAgbGVhcm5fY2xhcy5mcmVlemUoKQogICAgCiAgICBtb2RlbF9uYW1lID0gZiJsZWFybl9jbGFzX3t2ZXJzaW9ufV9ic197YnN9X3RocmVzaF97dGhyZXNofV9kcm9wbXVsdF97ZHJvcF9tdWx0fSIKICAgIHNhdmVfYmVzdCA9IFNhdmVNb2RlbENhbGxiYWNrKGxlYXJuX2NsYXMsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBldmVyeT0naW1wcm92ZW1lbnQnLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgbW9uaXRvcj0iZmJldGEiLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgbW9kZT0ibWF4IiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG5hbWU9bW9kZWxfbmFtZSkKICAgIGNhbGxiYWNrcyA9IFtzYXZlX2Jlc3RdCgogICAgbWluX2dyYWQgPSBnZXRfbWluX2dyYWQobGVhcm5fY2xhcykKICAgIGxlYXJuX2NsYXMuZml0X29uZV9jeWNsZSgxLCBtaW5fZ3JhZCwgY2FsbGJhY2tzPWNhbGxiYWNrcykKICAgIGxlYXJuX2NsYXMudW5mcmVlemUoKQoKICAgIG1pbl9ncmFkID0gZ2V0X21pbl9ncmFkKGxlYXJuX2NsYXMpCiAgICBsZWFybl9jbGFzLmZpdF9vbmVfY3ljbGUoZXBvY2hzLCBzbGljZShtaW5fZ3JhZCxtaW5fZ3JhZCoxMDApLCBtb21zPSgwLjgsMC43KSwgY2FsbGJhY2tzPWNhbGxiYWNrcykKICAgIAogICAgYmVzdF9mYmV0YSA9IG1heChbaVsxXSBmb3IgaSBpbiBsZWFybl9jbGFzLnJlY29yZGVyLm1ldHJpY3NdKS5pdGVtKCkKICAgIAogICAgbGVhcm5fY2xhcy5sb2FkKG1vZGVsX25hbWUpCiAgICAKICAgIHJldHVybiAoYmVzdF9mYmV0YSwgbGVhcm5fY2xhcykKCmRlZiB0cmFpbl9jbGFzKGNvbnRleHQsIHRyYWluX2NsYXNfZXBvY2hzLCBkYXRhX2NsYXNfcGF0aCwgbnVtX3NhbXBsZXMsIGVuY29kaW5ncywgaHlwZXJfY2xhc19iZXN0X3BhcmFtc19wYXRoKToKICAgIAogICAgd2l0aCBvcGVuKHN0cihoeXBlcl9jbGFzX2Jlc3RfcGFyYW1zX3BhdGgpICsgInBhcmFtcy5qc29uIiwgInIrIikgYXMgZjoKICAgICAgICBwYXJhbXMgPSBqc29uLmxvYWQoZikKICAgIHBhcmFtc1snZXBvY2hzJ10gPSBpbnQoc3RyKHRyYWluX2NsYXNfZXBvY2hzKSkKICAgIHBhcmFtc1snbnVtX3NhbXBsZXMnXSA9IGludChzdHIobnVtX3NhbXBsZXMpKQogICAgcGFyYW1zWydlbmNvZGluZ3MnXSA9IHN0cihlbmNvZGluZ3MpCiAgICBwYXJhbXNbJ2RhdGFfY2xhc19wYXRoJ10gPSBzdHIoZGF0YV9jbGFzX3BhdGgpCiAgICAKICAgIGJlc3RfZmJldGEsIGxlYXJuX2NsYXMgPSB0cmFpbl9jbGFzX21vZGVsKCoqcGFyYW1zKQogICAgCiAgICBtb2RlbCA9ICIvVXNlci9ubHAvcnVuL3RyYWluX2NsYXNfbW9kZWwiCiAgICBsZWFybl9jbGFzLnNhdmUobW9kZWwpCgogICAgY29udGV4dC5sb2dfcmVzdWx0KCd0cmFpbl9jbGFzX21vZGVsJywgbW9kZWwpCiAgICAKICAgIHRyYWluX2NsYXNfZmJldGFfcGF0aCA9ICIvVXNlci9ubHAvcnVuL3RyYWluX2NsYXNfZmJldGEudHh0IgogICAgd2l0aCBvcGVuKHRyYWluX2NsYXNfZmJldGFfcGF0aCwgIncrIikgYXMgZjoKICAgICAgICBmLndyaXRlKHN0cihiZXN0X2ZiZXRhKSkKICAgIGNvbnRleHQubG9nX3Jlc3VsdCgndHJhaW5fY2xhc19mYmV0YScsIHRyYWluX2NsYXNfZmJldGFfcGF0aCkKCg==
+    commands: []
+    code_origin: https://github.com/nschenone/NLP_Dev.git#10629776eea268f5080b9e2187a89f53f13a6575:train_clas.ipynb

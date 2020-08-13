@@ -1,0 +1,36 @@
+kind: job
+metadata:
+  name: create-data-bunches
+  tag: ''
+  hash: a53d1cdd63f12b881dc6ab358220a7e8cd008bf4
+  project: default
+  labels:
+    author: nschenone
+  categories:
+  - data-source
+  - ml
+spec:
+  command: ''
+  args: []
+  image: mlrun/ml-models-gpu
+  env: []
+  default_handler: create_data_bunches
+  entry_points:
+    create_data_bunches:
+      name: create_data_bunches
+      doc: ''
+      parameters:
+      - name: context
+        default: ''
+      - name: data_path
+        default: ''
+      - name: split
+        default: ''
+      outputs:
+      - default: ''
+      lineno: 12
+  description: create fastai data bunches
+  build:
+    functionSourceCode: IyBHZW5lcmF0ZWQgYnkgbnVjbGlvLmV4cG9ydC5OdWNsaW9FeHBvcnRlcgoKZnJvbSBvcyBpbXBvcnQgcGF0aAppbXBvcnQgcGFuZGFzIGFzIHBkCmltcG9ydCBudW1weSBhcyBucAppbXBvcnQgcmFuZG9tCmltcG9ydCBmYXN0YWkKZnJvbSBmYXN0YWkudGV4dCBpbXBvcnQgKgpmcm9tIGZhc3RhaS5jYWxsYmFja3MgaW1wb3J0ICoKZnJvbSBwaWNrbGUgaW1wb3J0IGR1bXBzCgpkZWYgY3JlYXRlX2RhdGFfYnVuY2hlcyhjb250ZXh0LCBkYXRhX3BhdGgsIHNwbGl0KToKICAgIHNwbGl0ID0gZmxvYXQoc3RyKHNwbGl0KSkKICAgIHByaW50KGYiQ3JlYXRpbmcgTGFuZ3VhZ2UgTW9kZWwgRGF0YUJ1bmNoIikKICAgIGRmX3NhbXBsZSA9IHBkLnJlYWRfcGlja2xlKHN0cihkYXRhX3BhdGgpKQoKICAgIFggPSBkZl9zYW1wbGVbOmludChsZW4oZGZfc2FtcGxlKSpzcGxpdCldCiAgICB5ID0gZGZfc2FtcGxlW2ludChsZW4oZGZfc2FtcGxlKSooMS1zcGxpdCkpOl0KCiAgICBkYXRhX291dF9wYXRoID0gJy9Vc2VyL25scC9ydW4vZGF0YV9sbS5wa2wnCiAgICBkYXRhX2xtID0gVGV4dExNRGF0YUJ1bmNoLmZyb21fZGYocGF0aD0iIiwgdHJhaW5fZGY9WCwgdmFsaWRfZGY9eSkKICAgIGRhdGFfbG0uc2F2ZShkYXRhX291dF9wYXRoKQogICAgY29udGV4dC5sb2dnZXIuaW5mbyhmJ1NhdmluZyBkYXRhX2xtIHRvIHtkYXRhX291dF9wYXRofSAuLi4nKQogICAgY29udGV4dC5sb2dfcmVzdWx0KGtleT0nZGF0YV9sbScsIHZhbHVlPWRhdGFfb3V0X3BhdGgpCgogICAgCiAgICBwcmludChmIkNyZWF0aW5nIENsYXNzaWZpY2F0aW9uIERhdGFCdW5jaCIpCiAgICBkZl9zYW1wbGUuZHJvcCgidGl0bGUiLCBheGlzPTEsIGlucGxhY2U9VHJ1ZSkKICAgIGRmX3NhbXBsZS5jb2x1bW5zID0gWyd0ZXh0JywgJ3RhcmdldCddCiAgICBkZl9zYW1wbGUgPSBkZl9zYW1wbGVbWyd0YXJnZXQnLCAndGV4dCddXQoKICAgIFggPSBkZl9zYW1wbGVbOmludChsZW4oZGZfc2FtcGxlKSpzcGxpdCldCiAgICB5ID0gZGZfc2FtcGxlW2ludChsZW4oZGZfc2FtcGxlKSooMS1zcGxpdCkpOl0KCiAgICBkYXRhX291dF9wYXRoID0gJy9Vc2VyL25scC9ydW4vZGF0YV9jbGFzLnBrbCcKICAgIGRhdGFfY2xhcyA9IFRleHRDbGFzRGF0YUJ1bmNoLmZyb21fZGYocGF0aD0iIiwgdHJhaW5fZGY9WCwgdmFsaWRfZGY9eSwgdm9jYWI9ZGF0YV9sbS52b2NhYikKICAgIGRhdGFfY2xhcy5zYXZlKGRhdGFfb3V0X3BhdGgpCiAgICAKICAgIGNvbnRleHQubG9nZ2VyLmluZm8oZidTYXZpbmcgZGF0YV9jbGFzIHRvIHtkYXRhX291dF9wYXRofSAuLi4nKQogICAgY29udGV4dC5sb2dfcmVzdWx0KGtleT0nZGF0YV9jbGFzJywgdmFsdWU9ZGF0YV9vdXRfcGF0aCkKCg==
+    commands: []
+    code_origin: https://github.com/nschenone/NLP_Dev.git#10629776eea268f5080b9e2187a89f53f13a6575:create_data_bunches.ipynb

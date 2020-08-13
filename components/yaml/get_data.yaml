@@ -1,0 +1,34 @@
+kind: job
+metadata:
+  name: get-data
+  tag: ''
+  hash: 700d44b3d95cda25e8e220bc022b4ae22fc7de3b
+  project: default
+  labels:
+    author: nschenone
+  categories:
+  - data-source
+  - ml
+spec:
+  command: ''
+  args: []
+  image: mlrun/ml-models-gpu
+  env: []
+  default_handler: get_data
+  entry_points:
+    get_data:
+      name: get_data
+      doc: ''
+      parameters:
+      - name: context
+        default: ''
+      - name: data_size
+        default: ''
+      outputs:
+      - default: ''
+      lineno: 6
+  description: load nlp dataset
+  build:
+    functionSourceCode: IyBHZW5lcmF0ZWQgYnkgbnVjbGlvLmV4cG9ydC5OdWNsaW9FeHBvcnRlcgoKZnJvbSBvcyBpbXBvcnQgcGF0aAppbXBvcnQgcGFuZGFzIGFzIHBkCgpkZWYgZ2V0X2RhdGEoY29udGV4dCwgZGF0YV9zaXplKToKICAgIGRhdGFfcGF0aCA9IGYnL1VzZXIvbmxwL3BpY2tsZS9tYXN0ZXJfZnJhbWVfdHJpbW1lZC5wa2wnCiAgICBwcmludCgiTG9hZGluZyBmdWxsIGRhdGFzZXQuLi4iKQogICAgZGYgPSBwZC5yZWFkX3BpY2tsZShkYXRhX3BhdGgpCiAgICBwcmludChmIlNhbXBsaW5nIHtkYXRhX3NpemV9IGRhdGEgcG9pbnRzLi4uIikKICAgIGRmX3NhbXBsZSA9IGRmLnNhbXBsZShuPWludChzdHIoZGF0YV9zaXplKSksIHJhbmRvbV9zdGF0ZT0xKQogICAgCiAgICBkYXRhX291dF9wYXRoID0gIi9Vc2VyL25scC9ydW4vZGF0YS5wa2wiCiAgICBkZl9zYW1wbGUudG9fcGlja2xlKGRhdGFfb3V0X3BhdGgpCiAgICBjb250ZXh0LmxvZ2dlci5pbmZvKGYnU2F2aW5nIGRhdGEgdG8ge2RhdGFfb3V0X3BhdGh9IC4uLicpCiAgICBjb250ZXh0LmxvZ19yZXN1bHQoJ2RhdGEnLCBkYXRhX291dF9wYXRoKQoK
+    commands: []
+    code_origin: https://github.com/nschenone/NLP_Dev.git#10629776eea268f5080b9e2187a89f53f13a6575:get_data.ipynb
