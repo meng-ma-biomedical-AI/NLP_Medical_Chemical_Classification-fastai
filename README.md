@@ -348,7 +348,7 @@ Logs for each pipeline component can be viewed using the `Logs` tab within the K
 
 ### Pipeline Runtime
 A pipeline using 5000 data points takes about 22 minutes to run to completion.
-A pipeline using 50000 data points takes about an hour.
+A pipeline using 50000 data points takes about an hour and 14 minutes.
 
 ### Final Results
 The final result of the pipeline leaves something to be desired in terms of accuracy, however it works in some respect. As a whole, this project was mainly meant to be a proof of concept and a roadmap for creating a Kubeflow Pipeline using MLRun and the Iguazio Data Platform.
@@ -755,8 +755,8 @@ Preds:
  b'["Polymers", "Collagen", "Biocompatible Materials", "Polyethylene Glycols", "Antibodies, Monoclonal", "Drug Carriers", "Peptides", "Water"]'
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMDk5NzA4OTEsLTEzMDM2MDI4OTMsMT
-IwMzYwMTUxMywtMTM1MjIyMjYxNywtMTU1MTUxNDMxMSw0MDI4
-MDAyOTksLTE5NjU4MTAyNzksLTg0MTU2ODUwOSwxMDM4MjIzOT
-M0LDI0ODQyMjcxMSwxMDQ2Njg1MzQ0XX0=
+eyJoaXN0b3J5IjpbMTgwODIyOTI2MiwtMTMwMzYwMjg5MywxMj
+AzNjAxNTEzLC0xMzUyMjIyNjE3LC0xNTUxNTE0MzExLDQwMjgw
+MDI5OSwtMTk2NTgxMDI3OSwtODQxNTY4NTA5LDEwMzgyMjM5Mz
+QsMjQ4NDIyNzExLDEwNDY2ODUzNDRdfQ==
 -->
