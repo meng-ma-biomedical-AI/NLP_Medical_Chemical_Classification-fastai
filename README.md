@@ -347,7 +347,7 @@ These are both quirks with the FastAI library and should not affect other librar
 Logs for each pipeline component can be viewed using the `Logs` tab within the Kubeflow GUI or from the MLRun GUI. These are pulled directly from the container logs, meaning one could also view these logs using Kubernetes.
 
 ### Pipeline Runtime
-A pipeline using 5000 data points takes about 20 minutes to run to completion.
+A pipeline using 5000 data points takes about 22 minutes to run to completion.
 A pipeline using 50000 data points takes about an hour.
 
 ### Final Results
@@ -755,8 +755,8 @@ Preds:
  b'["Polymers", "Collagen", "Biocompatible Materials", "Polyethylene Glycols", "Antibodies, Monoclonal", "Drug Carriers", "Peptides", "Water"]'
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMDM2MDI4OTMsMTIwMzYwMTUxMywtMT
-M1MjIyMjYxNywtMTU1MTUxNDMxMSw0MDI4MDAyOTksLTE5NjU4
-MTAyNzksLTg0MTU2ODUwOSwxMDM4MjIzOTM0LDI0ODQyMjcxMS
-wxMDQ2Njg1MzQ0XX0=
+eyJoaXN0b3J5IjpbLTIxMDk5NzA4OTEsLTEzMDM2MDI4OTMsMT
+IwMzYwMTUxMywtMTM1MjIyMjYxNywtMTU1MTUxNDMxMSw0MDI4
+MDAyOTksLTE5NjU4MTAyNzksLTg0MTU2ODUwOSwxMDM4MjIzOT
+M0LDI0ODQyMjcxMSwxMDQ2Njg1MzQ0XX0=
 -->
