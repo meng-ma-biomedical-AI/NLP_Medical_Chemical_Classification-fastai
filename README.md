@@ -199,14 +199,14 @@ The MLRun pipeline itself can be found within the notebook `MLRun.ipynb`. There 
 
 Each of the pipeline components were imported into the project for use within the pipeline:
 ```python3
-project.set_function('../components/get_data.yaml', 'get-data')
-project.set_function('../components/create_data_bunches.yaml', 'create-data-bunches')
-project.set_function('../components/hyper_lm.yaml', 'hyper-lm')
-project.set_function('../components/train_lm.yaml', 'train-lm')
-project.set_function('../components/hyper_clas.yaml', 'hyper-clas')
-project.set_function('../components/train_clas.yaml', 'train-clas')
-project.set_function('../components/model_server.yaml', 'model-server')
-project.set_function('../components/model_server_tester.yaml', 'model-server-tester')
+project.set_function('../components/yaml/get_data.yaml', 'get-data')
+project.set_function('../components/yaml/create_data_bunches.yaml', 'create-data-bunches')
+project.set_function('../components/yaml/hyper_lm.yaml', 'hyper-lm')
+project.set_function('../components/yaml/train_lm.yaml', 'train-lm')
+project.set_function('../components/yaml/hyper_clas.yaml', 'hyper-clas')
+project.set_function('../components/yaml/train_clas.yaml', 'train-clas')
+project.set_function('../components/yaml/model_server.yaml', 'model-server')
+project.set_function('../components/yaml/model_server_tester.yaml', 'model-server-tester')
 ```
 
 Finally, the pipeline itself uses each of these components to take the data as input, create a model using optimized hyper-parameters, and finally serve the model to an HTTP endpoint:
@@ -755,7 +755,7 @@ Preds:
  b'["Polymers", "Collagen", "Biocompatible Materials", "Polyethylene Glycols", "Antibodies, Monoclonal", "Drug Carriers", "Peptides", "Water"]'
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMyODgzMDkzNSwtMTU1MTUxNDMxMSw0MD
-I4MDAyOTksLTE5NjU4MTAyNzksLTg0MTU2ODUwOSwxMDM4MjIz
-OTM0LDI0ODQyMjcxMSwxMDQ2Njg1MzQ0XX0=
+eyJoaXN0b3J5IjpbLTEzNTIyMjI2MTcsLTE1NTE1MTQzMTEsND
+AyODAwMjk5LC0xOTY1ODEwMjc5LC04NDE1Njg1MDksMTAzODIy
+MzkzNCwyNDg0MjI3MTEsMTA0NjY4NTM0NF19
 -->
