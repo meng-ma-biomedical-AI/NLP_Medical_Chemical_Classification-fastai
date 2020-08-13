@@ -1,20 +1,20 @@
 name: nlp-nschenone
 functions:
-- url: ../components/get_data.yaml
+- url: ../components/yaml/get_data.yaml
   name: get-data
-- url: ../components/create_data_bunches.yaml
+- url: ../components/yaml/create_data_bunches.yaml
   name: create-data-bunches
-- url: ../components/hyper_lm.yaml
+- url: ../components/yaml/hyper_lm.yaml
   name: hyper-lm
-- url: ../components/train_lm.yaml
+- url: ../components/yaml/train_lm.yaml
   name: train-lm
-- url: ../components/hyper_clas.yaml
+- url: ../components/yaml/hyper_clas.yaml
   name: hyper-clas
-- url: ../components/train_clas.yaml
+- url: ../components/yaml/train_clas.yaml
   name: train-clas
-- url: ../components/model_server.yaml
+- url: ../components/yaml/model_server.yaml
   name: model-server
-- url: ../components/model_server_tester.yaml
+- url: ../components/yaml/model_server_tester.yaml
   name: model-server-tester
 workflows:
 - name: main
